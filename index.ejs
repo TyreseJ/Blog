@@ -9,13 +9,15 @@
     
 
     <% if (htmlWebpackPlugin.options.description) { %>
-    <meta name="description" content="<%= htmlWebpackPlugin.options.description %>"/>
+    <meta name="Content-type" content="<%= htmlWebpackPlugin.options.description %>"/>
     <% } %>
 
     <% for (var chunk of webpack.chunks) {
         for (var file of chunk.files) {
           if (file.match(/\.(js|css)$/)) { %>
     <link rel="<%= chunk.initial?'preload':'prefetch' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>"><% }}} %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   </head>
   <body>
     <noscript>
